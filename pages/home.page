@@ -1,0 +1,7 @@
+<apex:page showHeader="false" showChat="false" standardStylesheets="false" sidebar="false">
+
+  homePage: {{homePage}}
+  
+  <a href="/friendly/contact">go to contact page</a>
+
+</apex:page>

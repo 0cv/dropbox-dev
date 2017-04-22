@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>true</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
+    <fields>
+        <fullName>AppTitle__c</fullName>
+        <description>Used to optimize the SOQL call from the Pebble watch.</description>
+        <externalId>false</externalId>
+        <formula>Pebble_App__r.AppTitle__c</formula>
+        <inlineHelpText>The Title line of the PebbleForce application as it will show on the Pebble in smaller text.</inlineHelpText>
+        <label>App Title</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Pack_Type__c</fullName>
+        <description>The flag indicate the state or type of Pack assignment.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The flag indicate the state or type of Pack assignment.\
+All - will be displayed for ALL users
+User - is assigned to a single user
+Draft - will not show up for any users</inlineHelpText>
+        <label>Pack Type</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>All</fullName>
+                    <default>true</default>
+                    <label>All</label>
+                </value>
+                <value>
+                    <fullName>User</fullName>
+                    <default>false</default>
+                    <label>User</label>
+                </value>
+                <value>
+                    <fullName>Draft</fullName>
+                    <default>false</default>
+                    <label>Draft</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Pack_User__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>This is a link to the user who is assigned to the App.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This is a link to the user who is assigned to the App.</inlineHelpText>
+        <label>Pack User</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Pebble_Packs</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Pebble_App__c</fullName>
+        <externalId>false</externalId>
+        <label>Pebble App</label>
+        <referenceTo>Pebble_App__c</referenceTo>
+        <relationshipLabel>Pebble Packs</relationshipLabel>
+        <relationshipName>Pebble_Packs</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>true</reparentableMasterDetail>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Priority__c</fullName>
+        <description>Used to order the Pebble Applications on the menu.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Used to order the Pebble Applications on the menu.</inlineHelpText>
+        <label>Priority</label>
+        <precision>2</precision>
+        <required>true</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <description>Used to optimize the SOQL query from the Pebble Watch</description>
+        <externalId>false</externalId>
+        <formula>TEXT(Pebble_App__r.Active__c)</formula>
+        <inlineHelpText>Indicates if this PebbleForce App is Active or in some other state.  Only &apos;Active&apos; Apps will be displayed on the Pebble watch.</inlineHelpText>
+        <label>Status</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SubTitle__c</fullName>
+        <description>The SubTitle or description from the Pebble_App__c Object.  Shown here to optimize the SOQL calls from the Pebble watch.</description>
+        <externalId>false</externalId>
+        <formula>Pebble_App__r.AppSubTitle__c</formula>
+        <inlineHelpText>The SubTitle line or additional description of the PebbleForce application as it will show on the Pebble in smaller text.</inlineHelpText>
+        <label>Sub Title</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Pebble Pack</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>AppTitle__c</columns>
+        <columns>Pack_User__c</columns>
+        <columns>Pebble_App__c</columns>
+        <columns>Priority__c</columns>
+        <columns>Status__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <label>Pebble Pack Name</label>
+        <trackFeedHistory>true</trackFeedHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Pebble Packs</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>Pack_Type__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Pack_User__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Pebble_App__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Priority__c</customTabListAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>

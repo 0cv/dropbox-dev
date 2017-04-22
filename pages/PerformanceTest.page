@@ -1,0 +1,41 @@
+<apex:page showHeader="true" sidebar="true" controller="ngMainControllerDev" applyBodyTag="false" >
+    <script src="{!URLFOR($resource.appResources, 'libraries/angular.min.js')}"></script>
+
+	<script type="text/javascript">
+	    var ngApp = angular.module('ngApp', [])  
+
+            .controller('mainCtrl', function($scope, $http) {
+			    var sessionId = "{!$Api.Session_ID}";
+
+            	$scope.getRemoting = function() {
+					ngMainControllerDev.getAccounts(
+			            function(res, event) {
+			                if(event.status) {
+			                   	console.log("Remoting", res);
+			                }
+			                else {
+			                	event.message;
+			                }
+			            },
+			            {escape:false}
+			        );
+			    }
+
+			    $scope.getREST = function() {
+			    	$http.get("https://devdropboxchris-developer-edition.na14.force.com/services/apexrest/entryPoint/ngMainControllerDev/getAccounts")
+			    		.success(function(res) {
+			    			console.log("REST", res);
+			    		})
+					// curl https://devdropboxchris-developer-edition.na14.force.com/services/apexrest/entryPoint/ngMainControllerDev/getAccounts 
+			    }
+
+            });
+		
+	</script>
+
+	
+	<body ng-app="ngApp" ng-controller="mainCtrl">
+		<input type="button" ng-click="getRemoting()" value="get remoting" />
+		<input type="button" ng-click="getREST()" value="get REST" />
+	</body>
+</apex:page>

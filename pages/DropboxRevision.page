@@ -1,0 +1,48 @@
+<apex:page controller="DropboxRevision" showHeader="false" sidebar="false" id="page" >
+    <script>
+        function setHiddenBGPublic() {
+            var elm=document.getElementById('page:form:pb:revisions');
+            if(elm != null)
+                elm.style.display='none';  
+                 
+            elm=document.getElementById('divStatusIdPub');
+            if(elm != null)
+                elm.style.display='inline';  
+        } 
+
+        function afterHiddenBGPublic() {
+            var elm=document.getElementById('page:form:pb:revisions');
+            if(elm != null)
+                elm.style.display='inline-table'; 
+                
+            elm=document.getElementById('divStatusIdPub');
+            if(elm != null)
+                elm.style.display='none';  
+        }
+    </script>
+   <apex:form id="form" >
+       <apex:pageBlock id="pb"> 
+            <apex:actionStatus id="statusRerender" onstart="setHiddenBGPublic();" onstop="afterHiddenBGPublic();"/>
+            <apex:pageBlockTable id="revisions" value="{!Revisions}" var="Rev">
+                <apex:column headerValue="Download">
+                   <apex:commandLink action="{!getFile}" value="Download" rendered="{!NOT(Rev.is_deleted)}" status="StatusId" oncomplete="if('{!AlertMessage}' != '')alert('{!AlertMessage}');">
+                       <apex:param name="theRevision" value="{!Rev.rev}"/>
+                   </apex:commandLink>
+                </apex:column> 
+                <apex:column headerValue="Restoration">
+                   <apex:commandLink action="{!RestoreVersion}" status="statusRerender" value="restore this version" rerender="revisions" rendered="{!NOT(Rev.is_deleted)}" oncomplete="if('{!AlertMessage}' != '') {alert('{!AlertMessage}');}">
+                       <apex:param name="theRevision" value="{!Rev.rev}"/>
+                   </apex:commandLink>
+                </apex:column>
+                <apex:column headerValue="Status">
+                    <apex:outputText value="{!if(Rev.is_deleted, 'Deleted', 'Added')}"/>
+                </apex:column>
+                <apex:column headerValue="Date" value="{!Rev.modified}" />
+                <apex:column headerValue="Size" value="{!Rev.size}" />
+            </apex:pageBlockTable> 
+             
+       </apex:pageBlock>
+       <div id="divStatusIdPub" style="display:none;position: relative;top: 100px; left:45%;font-size:1 em;font-weight:bold;color:#666;"><img style="margin-right: 10px;" src="/img/loading.gif"/>Please wait...</div>
+   </apex:form>
+  
+</apex:page>

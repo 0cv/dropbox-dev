@@ -1,0 +1,16 @@
+<apex:component >
+	<div class="container subview">
+		<h4>view2</h4>
+		<h4>view2</h4>
+		<h4>view2</h4>
+		<h4>view2</h4>
+		<h4>view2</h4>
+		<h4>view2</h4>
+		<h4>view2</h4>
+		<h4>view2</h4>
+		<h4>view2</h4>
+		<h4>view2</h4>
+		<h4>view2</h4>
+		<h4>view2</h4>
+	</div>
+</apex:component>

@@ -1,0 +1,14 @@
+<apex:page standardController="Dropbox__c" tabStyle="Dropbox__c">
+    <apex:sectionHeader title="Edit" subtitle="{!Dropbox__c.Name}"/>
+    <apex:form >
+        <apex:pageblock id="Edit" title="Edit" mode="edit">
+            <apex:pageBlockButtons >
+                <apex:commandButton id="save" action="{!Save}" value="Save"/>
+                <apex:commandButton id="cancel" action="{!Cancel}" value="Cancel"/>
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection title="Name" columns="1" >
+                <apex:inputField value="{!Dropbox__c.Name__c}" style="bottom: 5px;position: relative;"/>
+            </apex:pageBlockSection>
+        </apex:pageblock>
+    </apex:form>
+</apex:page>

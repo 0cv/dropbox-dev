@@ -1,0 +1,10 @@
+<apex:page controller="DropboxPopup" action="{!GetShareableLink}" showHeader="false" sidebar="false">
+    <script>
+        if('{!AlertMessage}' != '') {
+            alert('{!AlertMessage}');
+        }else{ 
+            window.prompt ('Copy to clipboard: Ctrl+C, Enter.\r\nExpiration Time is at: {!Text2Display}', '{!Text2Copy}');
+        }
+        self.close();
+    </script>
+</apex:page>

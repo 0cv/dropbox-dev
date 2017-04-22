@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <content>DropboxOverrideDelete</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <content>DropboxOverrideEdit</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>true</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>Private</externalSharingModel>
+    <fields>
+        <fullName>Account__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Accountäüö</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Dropbox</relationshipLabel>
+        <relationshipName>Dropbox1</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Case__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Case m</label>
+        <referenceTo>Case</referenceTo>
+        <relationshipLabel>Dropbox</relationshipLabel>
+        <relationshipName>Dropbox</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Contact__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Contact Lookup</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Dropbox</relationshipLabel>
+        <relationshipName>Dropbox</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Download__c</fullName>
+        <externalId>false</externalId>
+        <formula>HYPERLINK(&quot;javascript: window.open(&apos;/apex/DropboxDownload?theURL=&quot; +URL__c+&quot;&apos; , &apos;Revisions&apos;, &apos;width=800,height=600,resizable=yes&apos;);javascript:self.close();&quot; , &apos;Download&apos;, &apos;_blank&apos; )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Download</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DropboxDocument__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>DropboxDocument</label>
+        <referenceTo>Dropbox__c</referenceTo>
+        <relationshipLabel>Dropbox</relationshipLabel>
+        <relationshipName>Dropbox</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Folder_Label__c</fullName>
+        <externalId>false</externalId>
+        <label>Folder Label</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Folder__c</fullName>
+        <externalId>false</externalId>
+        <label>Folder</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Lead__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Lead</label>
+        <referenceTo>Lead</referenceTo>
+        <relationshipLabel>Dropbox</relationshipLabel>
+        <relationshipName>Dropbox</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ParentId__c</fullName>
+        <externalId>false</externalId>
+        <formula>LEFT(SUBSTITUTE(URL__c, LEFT(URL__c , FIND( &quot;/&quot; +  $Setup.DropboxConfig__c.CurrentFolderNumber__c +&quot;/&quot; , URL__c, 40)+2), &quot;&quot;),18)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>ParentId</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Path__c</fullName>
+        <externalId>false</externalId>
+        <formula>SUBSTITUTE(URL__c , &quot;https://www.dropbox.com/0/links/Apps/salesforce&quot;, &quot;&quot;)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Path</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Revision__c</fullName>
+        <externalId>false</externalId>
+        <formula>/*HYPERLINK(&quot;/apex/DropboxRevision?FileId=&quot; +Id, &apos;Display Revisions&apos;, &apos;_blank&apos; )*/
+HYPERLINK(&quot;javascript: window.open(&apos;/apex/DropboxRevision?FileId=&quot;+Id +&quot;&apos; , &apos;Revisions&apos;, &apos;width=800,height=600,resizable=yes&apos;);&quot;, &apos;Display Revisions&apos;, &apos;_blank&apos; )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Revision</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Shareable_Link__c</fullName>
+        <externalId>false</externalId>
+        <formula>HYPERLINK(&quot;/apex/DropboxShareableLink?theURL=&quot; +URL__c , &apos;Get Link&apos;, &apos;_blank&apos; )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Shareable Link</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>URL__c</fullName>
+        <externalId>false</externalId>
+        <label>URL</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>UserPrivateFolder__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>UserPrivateFolder</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Dropbox</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>new_Field__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>new Field</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>qwd__c</fullName>
+        <externalId>false</externalId>
+        <label>qwd</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>1%3A</fullName>
+                    <default>false</default>
+                    <label>1%3A</label>
+                </value>
+                <value>
+                    <fullName>2</fullName>
+                    <default>false</default>
+                    <label>2</label>
+                </value>
+                <value>
+                    <fullName>3</fullName>
+                    <default>false</default>
+                    <label>3</label>
+                </value>
+                <value>
+                    <fullName>4</fullName>
+                    <default>false</default>
+                    <label>4</label>
+                </value>
+                <value>
+                    <fullName>5</fullName>
+                    <default>false</default>
+                    <label>5</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <label>Dropbox</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>URL__c</columns>
+        <columns>Name__c</columns>
+        <columns>Download__c</columns>
+        <columns>Account__c</columns>
+        <columns>Case__c</columns>
+        <columns>Contact__c</columns>
+        <columns>Lead__c</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>Folder__c</columns>
+        <columns>ParentId__c</columns>
+        <columns>DropboxDocument__c</columns>
+        <columns>Path__c</columns>
+        <columns>UserPrivateFolder__c</columns>
+        <columns>NAME</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <label>Dropbox-Name</label>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Dropbox</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>Private</sharingModel>
+    <sharingReasons>
+        <fullName>test__c</fullName>
+        <label>test</label>
+    </sharingReasons>
+    <validationRules>
+        <fullName>Rule_1</fullName>
+        <active>true</active>
+        <errorConditionFormula>false</errorConditionFormula>
+        <errorMessage>error</errorMessage>
+    </validationRules>
+    <visibility>Public</visibility>
+    <webLinks>
+        <fullName>Data_Management</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Data Management</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>var url=&quot;/apex/DropboxPopup?url=&quot; + document.URL;
+
+var newWin = window.open(url, &apos;Popup&apos;,&apos;height=500,width=600,left=100,top=100,resizable=no,scrollbars=yes,toolbar=no,status=no&apos;);
+
+if (window.focus) 
+{
+   newWin.focus();
+}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Get_Shareable_Folder</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Get Shareable Folder</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/23.0/connection.js&quot;)} 
+{!REQUIRESCRIPT(&quot;/soap/ajax/23.0/apex.js&quot;)} 
+
+
+var id = sforce.apex.execute(&quot;DropboxShareFolder&quot;,&quot;init&quot;, {URL:document.location.href }); 
+
+id2 = id[0].split(&quot; $$ &quot;);
+
+if(id2[1] != null)
+    window.prompt (&apos;Copy to clipboard: Ctrl+C, Enter.\r\nExpiration Time is at: &apos;+ id2[0], id2[1]);
+else
+    alert(id2[0]);</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Multiple_Upload</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Multiple Upload</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>var url=&quot;/apex/DropboxAppletUpload?url=&quot; + document.URL;
+
+var newWin = window.open(url, &apos;Popup&apos;,&apos;height=500,width=600,left=100,top=100,resizable=no,scrollbars=yes,toolbar=no,status=no&apos;);
+
+if (window.focus) 
+{
+   newWin.focus();
+}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Send_Email</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Send Email</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/23.0/connection.js&quot;)} 
+{!REQUIRESCRIPT(&quot;/soap/ajax/23.0/apex.js&quot;)} 
+
+var records = {!GETRECORDIDS($ObjectType.Dropbox__c)};  
+
+window.open(&quot;/apex/DropboxEmail?Records=&quot;+records + &quot;&amp;url=&quot; + document.URL , &quot;Emailing&quot;, &quot;width=800,height=600,resizable=yes&quot;);</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Synchronization</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Synchronization</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/23.0/connection.js&quot;)} 
+{!REQUIRESCRIPT(&quot;/soap/ajax/23.0/apex.js&quot;)} 
+
+//var records = {!GETRECORDIDS($ObjectType.Dropbox__c)}; 
+var id = sforce.apex.execute(&quot;DropboxSynchronization&quot;,&quot;init&quot;, {URL:document.location.href }); 
+
+location.reload(true);</url>
+    </webLinks>
+    <webLinks>
+        <fullName>delete_selected</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>delete selected</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/23.0/connection.js&quot;)} 
+{!REQUIRESCRIPT(&quot;/soap/ajax/23.0/apex.js&quot;)} 
+
+var records = {!GETRECORDIDS($ObjectType.Dropbox__c)}; 
+var id = &apos;&apos;;
+for(var i = 0 ; i &lt; records.length ; i ++ ) {
+   id = sforce.apex.execute(&quot;DropboxMassDelete&quot;,&quot;init&quot;, {&quot;DropboxIds&quot;: records[i] }); 
+   if(id != &apos;ok&apos;)
+       alert(id);
+}
+if(id == &apos;ok&apos;)
+    location.reload(true);
+else
+   alert(id);
+//window.open(&quot;/apex/DropboxEmail?Records=&quot;+records , &quot;Emailing&quot;, &quot;width=800,height=600,resizable=yes&quot;);</url>
+    </webLinks>
+</CustomObject>

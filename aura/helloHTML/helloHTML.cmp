@@ -1,0 +1,6 @@
+<aura:component controller="GetUser">
+    <aura:attribute name="user" type="User" default="{ 'sobjectType': 'User' }"/>
+	<aura:handler name="init" value="{!this}" action="{!c.getObject}" />
+    
+    {!v.body}
+</aura:component>

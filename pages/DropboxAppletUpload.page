@@ -1,0 +1,76 @@
+<apex:page controller="DropboxPopup" showHeader="false" sidebar="false" id="page">
+    <apex:pageMessages id="pageMsgs" rendered="{!hasMessages}"/>      
+    
+        <applet 
+          name="uploadApplet"
+          code="dndapplet/applet/DNDApplet" archive="{!$Resource.JUpload}"
+          width="500" height="200">         
+          
+          <!-- the form will be displayed if the browser cannot display applets -->
+<!--              <form enctype="multipart/form-data" action="../backend/upload.php" method="post"> -->
+<!--            Datei: <input name="uploadfile" type="file" size="25"> <input type="submit" value="senden"> -->
+<!--          </form> -->
+          
+       </applet>
+
+       <script>
+            function DataTransfer(Sources) {
+                DataTransferSf(Sources);
+            }
+            
+            function GetEncryptedURLs(FilesName) {
+                DropboxPopup.getEncryptedURLs4Applet(FilesName, '{!myFolder}' , callApplet);
+            }
+
+            function callApplet(result, event) {
+                if(event.type == 'exception') {
+                    alert(event.message);
+                } 
+                else {
+                    result = result.replace(/&amp;/g, '&');
+                    document.uploadApplet.uploadFilesFromJS(result);
+                }
+            }
+            
+            function setHiddenBGPublic() {
+		        document.getElementById('page:formUpload:pb:dropboxes').style.display='none';   
+				document.getElementById("StatusId").style.display ='inline';  
+		    } 
+		    
+		    function afterHiddenBGPublic() {
+		        document.getElementById('page:formUpload:pb:dropboxes').style.display='table'; 
+		        document.getElementById("StatusId").style.display = 'none';  
+		    }
+       </script> 
+       <apex:form id="formUpload" >
+           <apex:actionFunction name="DataTransferSf" action="{!DataTransfer}" rerender="dropboxes">
+               <apex:param name="Sources" value="" assignTo="{!Sources}"/>
+           </apex:actionFunction> 
+
+           <apex:pageBlock id="pb"> 
+               <apex:actionStatus id="status" onstart="setHiddenBGPublic();" onstop="afterHiddenBGPublic();"/>
+           	   <div id="StatusId" style="display:none;">
+				 	<div style="position: relative;left:10px;font-size:1 em;font-weight:bold;color:#666;"><div id="CurrentStatus" style="display:inline;"></div><img style="margin-left:10px;margin-right: 10px;" src="/img/loading.gif"/>Please wait</div>
+			   </div>
+               <apex:pageBlockTable id="dropboxes" value="{!Dropboxes}" var="DB">
+                     <apex:column headerValue="Download with Tokens">
+                        <apex:commandLink action="{!getFile}" value="Download" rerender="dropboxes" oncomplete="if('{!AlertMessage}' != '')alert('{!AlertMessage}');">
+                            <apex:param name="theURL" value="{!DB.URL__c}"/>
+                        </apex:commandLink>
+                     </apex:column>
+                     <apex:column headerValue="Get Shareable Link">
+                              <apex:commandLink action="{!getShareableLink}" value="get Link" status="status" rerender="dropboxes" oncomplete="if('{!AlertMessage}' != '') {alert('{!AlertMessage}');}else{ window.prompt ('Copy to clipboard: Ctrl+C, Enter.\r\nExpiration Time is at: {!Text2Display}', '{!Text2Copy}');}">
+                                  <apex:param name="theURL" value="{!DB.URL__c}"/>
+                              </apex:commandLink>
+                           </apex:column>
+                     <apex:column headerValue="Delete">
+                        <apex:commandLink action="{!deleteIt}" value="del" status="status" rerender="dropboxes" oncomplete="if('{!AlertMessage}' != '')alert('{!AlertMessage}');">
+                            <apex:param name="theId" value="{!DB.Id}"/>
+                        </apex:commandLink>
+                     </apex:column>
+                     <apex:column headerValue="Name" value="{!DB.Name__c}" />
+                     <apex:column headerValue="URL" value="{!DB.URL__c}" />
+                </apex:pageBlockTable> 
+          </apex:pageBlock>
+    </apex:form>
+</apex:page>

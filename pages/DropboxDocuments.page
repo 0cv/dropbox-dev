@@ -1,0 +1,286 @@
+<apex:page id="page" controller="DropboxDocumentsController"  tabStyle="Dropbox_Documents__tab">
+	<apex:pageMessages id="pageMsgs" rendered="{!hasMessages}"/>	
+	
+	<script> 
+		function setHiddenBGPublic() {
+	        var elm=document.getElementById('page:PublicPageBlock:formpBT:Table');
+	        if(elm != null)
+	            elm.style.display='none';  
+	             
+			elm=document.getElementById('divStatusIdPub');
+	        if(elm != null)
+	            elm.style.display='inline';  
+	    } 
+	    function setHiddenBGPrivate() {
+	        var elm=document.getElementById('page:PrivatePageBlock:formpBT:Table');
+	        if(elm != null)
+	            elm.style.display='none';   
+
+	        elm=document.getElementById('divStatusIdPriv');
+	        if(elm != null)
+	            elm.style.display='inline';  
+	    } 
+	    
+	    function afterHiddenBGPublic() {
+	        var elm=document.getElementById('page:PublicPageBlock:formpBT:Table');
+	        if(elm != null)
+	            elm.style.display='table'; 
+	            
+	        elm=document.getElementById('divStatusIdPub');
+	        if(elm != null)
+	            elm.style.display='none';  
+	    }
+	    function afterHiddenBGPrivate() {
+	   		var elm=document.getElementById('page:PrivatePageBlock:formpBT:Table');
+	        if(elm != null)
+	            elm.style.display='table'; 
+
+	        elm=document.getElementById('divStatusIdPriv');
+	        if(elm != null)
+	            elm.style.display='none';  
+	    }  
+	
+		var publicfilename = '';
+		var privatefilename = '';
+		var UploadType = '';
+		function openConfig(type, folder, publicprivate) {
+			if(type == "new") {
+				window.open("/apex/DropboxDocumentsConfig?publicprivate="+publicprivate+"&type=new&folder=" + folder, "Config", "scrollbars,resizable,width=400,height=300");
+			}
+			else if(type == "edit") {
+				window.open("/apex/DropboxDocumentsConfig?publicprivate="+publicprivate+"&type=edit&folder=" + folder, "Config", "scrollbars,resizable,width=400,height=300");
+			}
+		}
+		
+		function PublicUpdateName() {
+			var fullPath = document.getElementById("publicfiles").value;
+		    if (fullPath) {
+			    var startIndex = (fullPath.indexOf('\\') >= 0 ? fullPath.lastIndexOf('\\') : fullPath.lastIndexOf('/'));
+			    publicfilename = fullPath.substring(startIndex);
+			    if (publicfilename.indexOf('\\') === 0 || publicfilename.indexOf('/') === 0) {
+			    	publicfilename = publicfilename.substring(1);
+				}    
+			}
+			document.getElementById("page:PublicPageBlock:form:input").value = publicfilename;
+		}
+		
+		function PrivateUpdateName() {
+			var fullPath = document.getElementById("privatefiles").value;
+		    if (fullPath) {
+			    var startIndex = (fullPath.indexOf('\\') >= 0 ? fullPath.lastIndexOf('\\') : fullPath.lastIndexOf('/'));
+			    privatefilename = fullPath.substring(startIndex);
+			    if (privatefilename.indexOf('\\') === 0 || privatefilename.indexOf('/') === 0) {
+			    	privatefilename = privatefilename.substring(1);
+				}    
+			}
+			document.getElementById("page:PrivatePageBlock:form:input").value = privatefilename;
+		}
+		
+		function UploadIt2(urlEndPoint, privacy){   
+			// Add the iframe with a unique name
+			UploadType = privacy;
+			//if(privacy == 'public')
+				var iframe = document.getElementById("iframeId");
+			//else
+			//	var iframe = document.getElementById("iframeId");
+			//alert(iframe);
+			var uniqueString = "qsb1221sn210912dh";
+			try {
+				iframe.contentWindow.name = uniqueString;
+			}
+			catch(err) {
+				alert('error');
+			}
+		 
+			// construct a form targeting the iframe
+			if(privacy == 'public')
+				var form = document.getElementById("formUploadPublic");
+			else
+				var form = document.getElementById("formUploadPrivate");
+			//alert(form);
+		    form.target = uniqueString;
+			form.action = urlEndPoint;
+		    form.submit();
+		} 
+		
+		function PublicAfterUploadBefore(){
+			if(UploadType == 'public') {
+				if(publicfilename != '') {
+					PublicAfterUpload();
+				}	
+				publicfilename = '';
+			}
+			else {
+				if(privatefilename != '') {
+					PrivateAfterUpload();
+				}	
+				privatefilename = '';
+			}
+		}
+		
+		function checkUncheckAll(theElement) {
+	       var theForm = theElement.form, z = 0;
+	       for(z=0; z<theForm.length;z++){
+	            if(theForm[z].type == 'checkbox' && theForm[z].name != 'checkall'){
+	              theForm[z].checked = theElement.checked;
+	          }
+	       }
+	    }
+	</script>   
+	    		          
+
+		<apex:pageBlock id="PublicPageBlock" title="Public Folders">
+			
+			 <apex:panelGrid columns="20" id="navi"  style="margin-left: 20px;"> 
+ 
+			 <apex:form id="form">
+			 	 
+			 	 <apex:actionFunction name="rerenderPublicList" status="statusRerender" action="{!rerenderPublicList}" rerender="PublicPageBlock"/> 
+			 	 <apex:actionStatus id="statusRerender" onstart="setHiddenBGPublic();" onstop="afterHiddenBGPublic();"/>
+                 <apex:selectList id="captureTypeSelection" size="1" value="{!selectedPublicFolder}" onchange="rerenderPublicList()" >
+                     <apex:selectOptions value="{!PublicOptions}" /> 
+                 </apex:selectList>
+                 <apex:outputPanel rendered="{!isPublicElement}">
+                 &nbsp;
+                    <apex:commandLink onclick="openConfig('edit', '{!selectedPublicFolder}', 'public')" value="edit" rerender="PublicPageBlock"/>
+                    |&nbsp;
+                    <apex:commandLink action="{!deletePublicLayout}" value="delete" status="status" rerender="PublicPageBlock,Table" oncomplete="rerenderPublicList()"/>
+                    | &nbsp;
+                 </apex:outputPanel>
+                 <apex:commandLink onclick="openConfig('new', '{!selectedPublicFolder}', 'public');" value="new" rerender="PublicPageBlock"/>         
+   				&nbsp;
+				 
+				
+          		<apex:actionFunction name="backfrompopupPublic" action="{!rerenderPublicList}" rerender="PublicPageBlock">
+			 	     <apex:param name="selectedFolder" value="" assignTo="{!selectedPublicFolder}"/>
+			    </apex:actionFunction> 
+			    <apex:actionFunction name="PublicAfterUpload" status="status" action="{!AfterPublicUpload}" rerender="PublicPageBlock,pageMsgs"/> 
+			    <apex:inputHidden value="{!PublicFileName}" id="input"/>
+			    
+			    <apex:commandButton id="commandButton" status="status2" action="{!PublicUploadIt}" value="Upload File" rerender="commandButton" oncomplete="UploadIt2('{!urlEndPoint}', 'public');"/>
+			    <apex:commandButton id="commandButton2" status="status" action="{!synchronizationPublic}" value="Synchronization" rerender="PublicPageBlock,pageMsgs"/>      
+                <apex:commandButton id="commandButton3" action="{!getShareableFolderPublic}" value="Get Shareable Folder" oncomplete="if('{!AlertMessage}' != '') {alert('{!AlertMessage}');}else{ window.prompt ('Copy to clipboard: Ctrl+C, Enter.\r\nExpiration Time is at: {!Text2Display}', '{!Text2Copy}');}"/>     
+                
+            </apex:form>
+			  <form id="formUploadPublic" action="" method="POST" enctype="multipart/form-data">
+					 <input type="file" id="publicfiles" name="file" onchange="PublicUpdateName();"/> 
+					 <div id="divStatusIdPub" style="display:none;position: relative;top: 30x;font-size:1 em;font-weight:bold;color:#666;"><img style="margin-right: 10px;" src="/img/loading.gif"/>Please wait...</div>
+			   </form> 
+           </apex:panelGrid>
+          
+            <apex:actionStatus id="status2" onstart="setHiddenBGPublic();setHiddenBGPrivate();" />
+            <apex:actionStatus id="status" onstart="setHiddenBGPublic();setHiddenBGPrivate();" onstop="afterHiddenBGPublic();afterHiddenBGPrivate();"/>
+            <apex:form id="formpBT">
+                <apex:commandButton id="commandButtonDel" status="status" action="{!deleteThem}" value="Delete selected Files" rerender="formpBT" oncomplete="if('{!AlertMessage}' != '')alert('{!AlertMessage}');"> 
+                	<apex:param name="PublicPrivate" value="public" />
+                </apex:commandButton>  
+	            <apex:pageBlockTable id="Table" value="{!PublicDropboxesPerFolder}" var="PDPF"  style="display:table;" >
+	                <apex:column >
+	                    <apex:facet name="header"><input type="checkbox" name="checkall" onclick="checkUncheckAll(this);"></apex:facet>
+                        <apex:inputCheckbox value="{!PDPF.isChecked}"/>
+                    </apex:column>
+					<apex:column headerValue="{!$ObjectType.Dropbox__c.Fields.Download__c.Label}" >
+						<apex:outputText value="{!PDPF.dropbox.Download__c}" escape="false"/>
+					</apex:column>
+                    <apex:column headerValue="{!$ObjectType.Dropbox__c.Fields.Revision__c.Label}" >
+                        <apex:outputText value="{!PDPF.dropbox.Revision__c}" escape="false"/>
+                    </apex:column>
+					<apex:column headerValue="Get Shareable Link">
+                        <apex:commandLink action="{!getShareableLink}" value="get Link" oncomplete="if('{!AlertMessage}' != '') {alert('{!AlertMessage}');}else{ window.prompt ('Copy to clipboard: Ctrl+C, Enter.\r\nExpiration Time is at: {!Text2Display}', '{!Text2Copy}');}">
+                            <apex:param name="theURL" value="{!PDPF.dropbox.URL__c}"/>
+                        </apex:commandLink>
+                     </apex:column>
+					<apex:column headerValue="Delete">
+				 	 	<apex:commandLink action="{!deleteIt}" value="del" rerender="formpBT" status="status" oncomplete="if('{!AlertMessage}' != '')alert('{!AlertMessage}');">
+				 	 		<apex:param name="theId" value="{!PDPF.dropbox.Id}"/>
+				 	 	</apex:commandLink>
+					</apex:column>
+					<apex:column headerValue="{!$ObjectType.Dropbox__c.Fields.Name__c.Label}" >
+						<apex:outputField value="{!PDPF.dropbox.Name__c}"/>
+					</apex:column>
+					
+				</apex:pageBlockTable>
+			</apex:form>
+			 	
+		</apex:pageBlock>
+		
+		
+		
+		
+        <apex:pageBlock id="PrivatePageBlock" title="Private Folders">
+            
+             <apex:panelGrid columns="20" id="navi"  style="margin-left: 20px;"> 
+ 
+             <apex:form id="form">
+                 
+                 <apex:actionFunction name="rerenderPrivateList" action="{!rerenderPrivateList}" rerender="PrivatePageBlock" status="statusRerender"/> 
+                 <apex:actionStatus id="statusRerender" onstart="setHiddenBGPrivate();" onstop="afterHiddenBGPrivate();"/>
+                 <apex:selectList id="captureTypeSelection" size="1" value="{!selectedPrivateFolder}" onchange="rerenderPrivateList()" >
+                     <apex:selectOptions value="{!PrivateOptions}" /> 
+                 </apex:selectList>
+                 <apex:outputPanel rendered="{!isPrivateElement}">
+                 &nbsp;
+                    <apex:commandLink onclick="openConfig('edit', '{!selectedPrivateFolder}', 'private')" value="edit" rerender="PrivatePageBlock"/>
+                    |&nbsp;
+                    <apex:commandLink action="{!deletePrivateLayout}" status="status" value="delete" rerender="PrivatePageBlock,Table" oncomplete="rerenderPrivateList()"/>
+                    | &nbsp;
+                 </apex:outputPanel>
+                 <apex:commandLink onclick="openConfig('new', '{!selectedPrivateFolder}', 'private');" value="new" rerender="PrivatePageBlock"/>         
+                &nbsp;
+                 
+                
+                <apex:actionFunction name="backfrompopupPrivate" action="{!rerenderPrivateList}" rerender="PrivatePageBlock">
+                     <apex:param name="selectedFolder" value="" assignTo="{!selectedPrivateFolder}"/>
+                </apex:actionFunction> 
+                <apex:actionFunction name="PrivateAfterUpload" status="status" action="{!AfterPrivateUpload}" rerender="PrivatePageBlock,pageMsgs"/> 
+                <apex:inputHidden value="{!PrivateFileName}" id="input"/>
+                <apex:commandButton id="commandButton" status="status2" action="{!PrivateUploadIt}" value="Upload File" rerender="commandButton" oncomplete="UploadIt2('{!urlEndPoint}', 'private');"/>   
+            	<apex:commandButton id="commandButton2" status="status" action="{!synchronizationPrivate}" value="Synchronization" rerender="PrivatePageBlock,pageMsgs" />     
+                <apex:commandButton id="commandButton3" action="{!getShareableFolderPrivate}" value="Get Shareable Folder" oncomplete="if('{!AlertMessage}' != '') {alert('{!AlertMessage}');}else{ window.prompt ('Copy to clipboard: Ctrl+C, Enter.\r\nExpiration Time is at: {!Text2Display}', '{!Text2Copy}');}"/>
+            </apex:form>
+              <form id="formUploadPrivate" action="" method="POST" enctype="multipart/form-data">
+                     <input type="file" id="privatefiles" name="file" onchange="PrivateUpdateName();"/> 
+                     <div id="divStatusIdPriv" style="display:none;position: relative;top: 30px;font-size:1 em;font-weight:bold;color:#666;"><img style="margin-right: 10px;" src="/img/loading.gif"/>Please wait...</div>
+           
+               </form> 
+               
+            </apex:panelGrid>
+             <apex:actionStatus id="status2" onstart="setHiddenBGPublic();setHiddenBGPrivate();" />
+           
+            <apex:actionStatus id="status" onstart="setHiddenBGPublic();setHiddenBGPrivate();" onstop="afterHiddenBGPublic();afterHiddenBGPrivate();"/>
+            <apex:form id="formpBT">
+                <apex:commandButton id="commandButtonDel" status="status" action="{!deleteThem}" value="Delete selected Files" rerender="formpBT" oncomplete="if('{!AlertMessage}' != '')alert('{!AlertMessage}');">  
+                	<apex:param name="PublicPrivate" value="private" />
+                </apex:commandButton> 
+                <apex:pageBlockTable id="Table" value="{!PrivateDropboxesPerFolder}" var="PDPF" style="display:table;" >
+                    <apex:column >
+                        <apex:facet name="header"><input type="checkbox" name="checkall" onclick="checkUncheckAll(this);"></apex:facet>
+                        <apex:inputCheckbox value="{!PDPF.isChecked}"/>
+                    </apex:column>
+                    <apex:column headerValue="{!$ObjectType.Dropbox__c.Fields.Download__c.Label}" >
+                        <apex:outputText value="{!PDPF.dropbox.Download__c}" escape="false"/>
+                    </apex:column>
+                    <apex:column headerValue="{!$ObjectType.Dropbox__c.Fields.Revision__c.Label}" >
+                        <apex:outputText value="{!PDPF.dropbox.Revision__c}" escape="false"/>
+                    </apex:column>
+                    <apex:column headerValue="Get Shareable Link">
+                        <apex:commandLink action="{!getShareableLink}" value="get Link" oncomplete="if('{!AlertMessage}' != '') {alert('{!AlertMessage}');}else{ window.prompt ('Copy to clipboard: Ctrl+C, Enter.\r\nExpiration Time is at: {!Text2Display}', '{!Text2Copy}');}">
+                            <apex:param name="theURL" value="{!PDPF.dropbox.URL__c}"/>
+                        </apex:commandLink>
+                     </apex:column>
+                    <apex:column headerValue="Delete">
+                        <apex:commandLink action="{!deleteIt}" value="del" status="status" rerender="formpBT" oncomplete="if('{!AlertMessage}' != '')alert('{!AlertMessage}');">
+                            <apex:param name="theId" value="{!PDPF.dropbox.Id}"/>
+                        </apex:commandLink>
+                    </apex:column>
+                    <apex:column headerValue="{!$ObjectType.Dropbox__c.Fields.Name__c.Label}" >
+                        <apex:outputField value="{!PDPF.dropbox.Name__c}"/>
+                    </apex:column>
+                    
+                </apex:pageBlockTable>
+            </apex:form>
+                
+        </apex:pageBlock>
+        <iframe id="iframeId" style="display:none;" onload="PublicAfterUploadBefore();"/>
+<!--		<iframe id="iframeIdPrivate" style="display:none;" onload="PrivateAfterUploadBefore();"/>-->
+</apex:page>

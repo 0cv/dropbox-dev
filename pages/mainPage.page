@@ -1,0 +1,40 @@
+<apex:page showHeader="false" showChat="false" standardStylesheets="false" sidebar="false">
+    <apex:includeScript value="{!URLFOR($Resource.angular, 'angular/angular.min.js')}" />
+    <apex:includeScript value="{!URLFOR($Resource.angular, 'angular/angular-route.min.js')}" />
+    <script>
+         angular.module('ngApp', ['ngRoute'])
+           .config(['$routeProvider', '$locationProvider',
+                  function($routeProvider, $locationProvider) {
+                    $routeProvider.
+                      when('/friendly/home', {
+                        templateUrl: '/apex/home',
+                        controller: 'homeCtrl'
+                      }).
+                      when('/friendly/contact', {
+                        templateUrl: '/apex/contact',
+                        controller: 'contactCtrl'
+                      }).
+                      otherwise({
+                        redirectTo: '/friendly/home'
+                      });
+                      $locationProvider.html5Mode(false);
+                  }]);
+                  
+          function homeCtrl($scope) {
+              $scope.homePage = 'this is the home page';
+          }
+          
+          function contactCtrl($scope) {
+              $scope.contact = 'you are on the contact page';
+          }
+          
+          function mainCtrl($scope) {
+          
+          }
+    
+    </script>
+    <div ng-controller="mainCtrl" ng-app="ngApp">
+        inside mainpage
+        <div ng-view="ngView"></div>
+    </div>
+</apex:page>

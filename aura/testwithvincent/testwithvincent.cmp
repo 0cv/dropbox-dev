@@ -1,0 +1,6 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global" >
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+    <lightning:icon iconName="action:approval" size="large" alternativeText="Indicates approval"/>
+    <video> </video>
+</aura:component>

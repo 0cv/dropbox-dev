@@ -1,0 +1,51 @@
+<apex:page id="dcPage" controller="DropboxConfigController" action="{!save}">
+	
+	
+	<apex:form id="dcForm">
+		<apex:pageBlock id="dcPageBlock" title="Configuration">
+			<apex:pageBlockSection title="Tokens">		
+				<apex:outputPanel >	
+					<apex:commandButton action="{!auth2dropboxsite}" value="Renew auth token"/>
+				</apex:outputPanel>
+				&nbsp;
+				<apex:pageBlockTable id="dcTable" value="{!keys}" var="keySet">
+					<apex:column headerValue="{!$ObjectType.DropboxConfig__c.Fields.oauth_token__c.Label}" value="{!keySet.oauth_token__c}" />
+					<apex:column headerValue="{!$ObjectType.DropboxConfig__c.Fields.oauth_tokensecret__c.Label}" value="{!keySet.oauth_tokensecret__c}" />
+				</apex:pageBlockTable>
+			</apex:pageBlockSection>
+			<apex:pageBlockSection title="Schedule to remove Dropbox files from deleted salesforce records" Id="RemoveSchedule">
+				<apex:outputPanel >
+					<apex:commandButton action="{!RescheduleRemove}" value="Reschedule" rerender="RemoveSchedule"/>
+					<apex:commandButton action="{!DeleteScheduleRemove}" value="Cancel Schedule" rerender="RemoveSchedule" rendered="{!NOT(ISNULL(CT1))}"/>
+				</apex:outputPanel>
+				&nbsp;
+				<apex:outputLabel value="The Schedule is actually disabled" rendered="{!ISNULL(CT1)}"/>
+				<apex:pageBlockTable id="dcTable" value="{!CT1}" var="CTvar" rendered="{!NOT(ISNULL(CT1))}">
+					<apex:column headerValue="{!$ObjectType.CronTrigger.Fields.CreatedDate.Label}" >
+						<apex:outputField value="{!CTvar.CreatedDate}"/>
+					</apex:column>
+					<apex:column headerValue="{!$ObjectType.CronTrigger.Fields.NextFireTime.Label}" >
+						<apex:outputField value="{!CTvar.NextFireTime}"/>
+					</apex:column>
+				</apex:pageBlockTable>
+			</apex:pageBlockSection>
+			<apex:pageBlockSection title="Schedule to remove old Content Version files and to check if the current Dropbox Folder has still enough place" Id="RemoveSchedule2">
+				<apex:outputPanel >
+					<apex:commandButton action="{!Reschedule24Hours}" value="Reschedule" rerender="RemoveSchedule2"/>
+					<apex:commandButton action="{!DeleteSchedule24Hours}" value="Cancel Schedule" rerender="RemoveSchedule2" rendered="{!NOT(ISNULL(CT2))}"/>
+				</apex:outputPanel>
+				&nbsp;
+				<apex:outputLabel value="The Schedule is actually disabled" rendered="{!ISNULL(CT2)}"/>
+				<apex:pageBlockTable id="dcTable" value="{!CT2}" var="CTvar" rendered="{!NOT(ISNULL(CT2))}">
+					<apex:column headerValue="{!$ObjectType.CronTrigger.Fields.CreatedDate.Label}" >
+						<apex:outputField value="{!CTvar.CreatedDate}"/>
+					</apex:column>
+					<apex:column headerValue="{!$ObjectType.CronTrigger.Fields.NextFireTime.Label}" >
+						<apex:outputField value="{!CTvar.NextFireTime}"/>
+					</apex:column>
+				</apex:pageBlockTable>
+			</apex:pageBlockSection>
+		</apex:pageBlock>
+	</apex:form>
+
+</apex:page>

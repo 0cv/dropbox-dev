@@ -1,0 +1,4 @@
+<!-- sender.cmp -->
+<aura:component implements="force:appHostable">
+    <ui:button label="Create Record" press="{!c.createRecord}"/>
+</aura:component>

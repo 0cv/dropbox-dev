@@ -1,0 +1,6 @@
+<aura:documentation>
+	<aura:description>This component place a big red button and ...</aura:description>
+	<aura:example name="ExampleName" ref="c:PanicButton" label="Label">
+		Example Description 
+	</aura:example>
+</aura:documentation>

@@ -1,0 +1,51 @@
+<apex:page id="page" controller="DropboxDocumentsConfig" showHeader="false" sidebar="false" tabStyle="Dropbox_Documents__tab">
+	<script>
+		function back(selectedFolder) {
+			if(selectedFolder != null && selectedFolder != ''){
+				if('{!PublicPrivate}' == 'private') {
+					window.opener.backfrompopupPrivate(selectedFolder);
+				}
+				else {
+					window.opener.backfrompopupPublic(selectedFolder);
+				}
+			}
+			self.close();
+		}
+		
+		function saveIt(){
+			var filter2 = /^.+$/;
+			var test = document.getElementById('page:form:pageblock:pbs:FolderLabel').value;
+			if (!filter2.test(test) ) {
+				alert("Please provide a Folder label");
+				return false;
+			}
+			
+			var filter = /^[a-zA-Z0-9_]+$/;
+			test = document.getElementById('page:form:pageblock:pbs:FolderAPIName').value;
+
+			if (!filter.test(test) ) {
+				alert("Please provide a valid Folder API Name");
+				return false;
+			}
+			else
+				save();
+		}
+		
+		if('{!AlertMessage}' != '')
+			alert('{!AlertMessage}');
+	</script>
+	<apex:sectionHeader title="{!type}" subtitle="{!subtitle}"/> 
+	<apex:form id="form">
+		<apex:pageblock id="pageblock" title="{!type}" mode="edit">
+			<apex:pageBlockButtons >
+				 <apex:actionFunction name="save" action="{!Save}" rerender="save" oncomplete="if('{!AlertMessage}' != '') {alert('{!AlertMessage}');}else{back('{!Dropbox.Folder__c}');}"/> 
+				<apex:commandButton id="save" onclick="saveIt();" value="Save" rerender="save" />
+				<apex:commandButton id="cancel" onclick="back('{!Dropbox.Folder__c}'); return false;" value="Cancel"/>
+			</apex:pageBlockButtons>
+			<apex:pageBlockSection id="pbs" title="Name" columns="1" >
+				<apex:inputField Id="FolderLabel" value="{!Dropbox.Folder_Label__c}" style="bottom: 5px;position: relative;" onblur="DeveloperNameInputElement.setName(this, document.getElementById('{!$Component.FolderAPIName}'), 'Field1');"/>
+				<apex:inputField Id="FolderAPIName" value="{!Dropbox.Folder__c}" style="bottom: 5px;position: relative;"/>
+			</apex:pageBlockSection>
+		</apex:pageblock>
+	</apex:form>
+</apex:page>

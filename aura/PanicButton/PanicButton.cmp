@@ -1,0 +1,24 @@
+<aura:component controller="PanicButtonServerController" implements="force:appHostable,flexipage:availableForAllPageTypes">
+    <ltng:require styles="/resource/SLDS/assets/styles/salesforce-lightning-design-system-ltng.css"></ltng:require>
+    <aura:attribute description="input for the soud" name="sound" type="string" default="sad Trombone"></aura:attribute>
+
+    <aura:attribute description="input for the message..." name="message" type="String" default="D'Oh"></aura:attribute>
+    <aura:attribute description="URL of sound file" name="audioFilePath" type="String" default="" access="private"></aura:attribute>
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+    <div class="slds">
+        <!--div class="panicbutton" onclick="{!c.handleClick}"></div-->
+        <div class="centered">
+            <ui:button label="Play" labelClass="assistiveText" press="{!c.handleClick}" class="panicbutton"/>
+        </div>
+        <audio controls="controls" aura:id="audioclip" onended="{!c.onPlaybackEnded}" src="{!v.audioFilePath}"></audio>
+        <div class="centered slds-form-element soundSelector">
+            <ui:inputSelect label="Select Sound" labelClass="assistiveText" class="slds-select" aura:id="soundSelector" change="{!c.handleChange}"></ui:inputSelect>
+        </div>
+
+        <div aura:id="message" class="slds-hide message">
+            {!v.message}
+        </div>
+    </div>
+</aura:component>

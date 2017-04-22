@@ -1,0 +1,1 @@
+<apex:page standardController="Dropbox__c" extensions="DropboxOverrideController" action="{!redirectAfterDelete}"/>

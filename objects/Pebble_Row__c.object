@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>The individual lines in the Pebble App</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
+    <fields>
+        <fullName>Action__c</fullName>
+        <description>Changes to this require modifications to the Pebble Watch C and javascript code.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Cycle - cycle between the different text lines for this Row
+Post - create a record in Pebble Post
+Case - create a new Case record (*)
+Chatter - post to Chatter (*)
+Reload - Reload the app
+[*-Special formatting required see AppExchange instructions]</inlineHelpText>
+        <label>Action</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Cycle</fullName>
+                    <default>false</default>
+                    <label>Cycle</label>
+                </value>
+                <value>
+                    <fullName>Post</fullName>
+                    <default>false</default>
+                    <label>Post</label>
+                </value>
+                <value>
+                    <fullName>Chatter</fullName>
+                    <default>false</default>
+                    <label>Chatter</label>
+                </value>
+                <value>
+                    <fullName>Case</fullName>
+                    <default>false</default>
+                    <label>Case</label>
+                </value>
+                <value>
+                    <fullName>Reload</fullName>
+                    <default>false</default>
+                    <label>Reload</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Custom_Detail__c</fullName>
+        <externalId>false</externalId>
+        <label>Custom Detail</label>
+        <length>3000</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Custom_Note__c</fullName>
+        <description>Use this area to store record IDs or other variables that will be used in the Apex code to initiate  the action desired.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Use this area to store record IDs or other variables that will be used in the Apex code to initiate  the action desired.</inlineHelpText>
+        <label>Custom Note</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Documentation__c</fullName>
+        <externalId>false</externalId>
+        <label>Documentation</label>
+        <length>32768</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Line1__c</fullName>
+        <externalId>false</externalId>
+        <label>Line1</label>
+        <length>20</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Line2__c</fullName>
+        <externalId>false</externalId>
+        <label>Line2</label>
+        <length>30</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Pebble_App__c</fullName>
+        <externalId>false</externalId>
+        <label>Pebble App</label>
+        <referenceTo>Pebble_App__c</referenceTo>
+        <relationshipName>Pebble_Lines</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>true</reparentableMasterDetail>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Priority__c</fullName>
+        <description>When there are multiple items to be displayed on a row, this determines the Display Order.  There can never be more than 10 items but providing two digits allows for space between rows for insertion of more items without renumbering.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The order that the item should be displayed.</inlineHelpText>
+        <label>Display Order</label>
+        <precision>2</precision>
+        <required>true</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Row__c</fullName>
+        <description>This defines which row on the Pebble screen this information will be displayed.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This defines which row on the Pebble screen this information will be displayed.</inlineHelpText>
+        <label>Row</label>
+        <precision>1</precision>
+        <required>true</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Short_Code__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Used to create a unique code for the Post action to use to initiate actions.  Recommended that the code include a separator if you want to part.  eg (&quot;MN1-&quot; or &quot;MN1,&quot;)</inlineHelpText>
+        <label>Short Code</label>
+        <length>11</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Sort_Order__c</fullName>
+        <description>A calculated field that is used to help sort the Rows in searches into the correct App and then display row and priority.</description>
+        <externalId>false</externalId>
+        <formula>Pebble_App__r.Name &amp; &quot;-&quot; &amp; TEXT( Row__c ) &amp; &quot;-&quot; &amp; TEXT( Priority__c )</formula>
+        <inlineHelpText>A calculated field that is used to help sort the Rows in searches into the correct App and then display row and priority.</inlineHelpText>
+        <label>Sort Order</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Pebble Row</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Sort_Order__c</columns>
+        <columns>Pebble_App__c</columns>
+        <columns>Short_Code__c</columns>
+        <columns>Action__c</columns>
+        <columns>Line1__c</columns>
+        <columns>Line2__c</columns>
+        <columns>Custom_Note__c</columns>
+        <columns>Custom_Detail__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>Chatter</fullName>
+        <columns>Pebble_App__c</columns>
+        <columns>Line1__c</columns>
+        <columns>Line2__c</columns>
+        <columns>Short_Code__c</columns>
+        <columns>Action__c</columns>
+        <columns>Row__c</columns>
+        <columns>Priority__c</columns>
+        <columns>Custom_Note__c</columns>
+        <columns>Custom_Detail__c</columns>
+        <columns>Sort_Order__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Pebble_App__c</field>
+            <operation>equals</operation>
+            <value>Chatter</value>
+        </filters>
+        <label>Chatter</label>
+    </listViews>
+    <nameField>
+        <displayFormat>PR{000000}</displayFormat>
+        <label>Pebble Row Name</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Pebble Row</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>Sort_Order__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Action__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Line1__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Line2__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Short_Code__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>Pebble_App__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Action__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Line1__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Line2__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Pebble_App__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Action__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Line1__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Line2__c</lookupPhoneDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>Pebble_App__c</searchFilterFields>
+        <searchFilterFields>Action__c</searchFilterFields>
+        <searchFilterFields>Line1__c</searchFilterFields>
+        <searchFilterFields>Line2__c</searchFilterFields>
+        <searchResultsAdditionalFields>Pebble_App__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Action__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Line1__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Line2__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>

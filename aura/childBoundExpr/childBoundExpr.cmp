@@ -1,0 +1,8 @@
+<!--docsample:childBoundExpr-->
+<aura:component >
+    <aura:attribute name="childAttr" type="String" />
+
+    <p>childBoundExpr childAttr: {!v.childAttr}</p>
+    <p><ui:button label="Update childAttr" 
+          press="{!c.updateChildAttr}"/></p>
+</aura:component>

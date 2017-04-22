@@ -1,0 +1,25 @@
+<apex:page showHeader="false" sidebar="false" standardStylesheets="false" applyBodyTag="false" applyHtmlTag="false">
+
+<html ng-app="myApp">
+    <head>
+        <title>Visualforce Page Application</title>
+        <script src="{!URLFOR($resource.appResources, 'libraries/angular.min.js')}"></script>
+        <script>
+           var app=  angular.module("myApp", []);
+           app.controller('mainController', function($http){
+               $http.get('https://devdropboxchris-developer-edition.na14.force.com/services/apexrest/entryPoint').then(function(){
+                   console.log('args', arguments);
+               });
+              console.log('hello');
+           })
+        </script>
+    </head>
+ 
+    <body ng-controller="mainController">
+        <input type="text" ng-model="myInput" />
+        <div>
+            You have entered this text here: {{myInput}}
+        </div>
+    </body> 
+</html>
+</apex:page>
