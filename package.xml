@@ -28,6 +28,7 @@
         <members>Activity</members>
         <members>AgentWork</members>
         <members>Asset</members>
+        <members>AssetRelationship</members>
         <members>AssistantProgress</members>
         <members>Campaign</members>
         <members>CampaignMember</members>
@@ -66,6 +67,7 @@
         <members>Order</members>
         <members>OrderItem</members>
         <members>PartnerRole</members>
+        <members>PendingServiceRouting</members>
         <members>Pricebook2</members>
         <members>PricebookEntry</members>
         <members>Product2</members>
