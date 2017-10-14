@@ -35,6 +35,9 @@
         <members>Case</members>
         <members>CaseContactRole</members>
         <members>CaseMilestone</members>
+        <members>ChannelProgram</members>
+        <members>ChannelProgramLevel</members>
+        <members>ChannelProgramMember</members>
         <members>Contact</members>
         <members>ContentVersion</members>
         <members>Contract</members>
@@ -60,12 +63,17 @@
         <members>Macro</members>
         <members>MacroAction</members>
         <members>MacroInstruction</members>
+        <members>NetworkMember</members>
         <members>Opportunity</members>
         <members>OpportunityCompetitor</members>
         <members>OpportunityContactRole</members>
         <members>OpportunityLineItem</members>
         <members>Order</members>
         <members>OrderItem</members>
+        <members>PartnerFundAllocation</members>
+        <members>PartnerFundClaim</members>
+        <members>PartnerFundRequest</members>
+        <members>PartnerMarketingBudget</members>
         <members>PartnerRole</members>
         <members>PendingServiceRouting</members>
         <members>Pricebook2</members>
@@ -74,6 +82,8 @@
         <members>Question</members>
         <members>QuickText</members>
         <members>Reply</members>
+        <members>Scorecard</members>
+        <members>ScorecardMetric</members>
         <members>ServiceContract</members>
         <members>Site</members>
         <members>SocialPersona</members>

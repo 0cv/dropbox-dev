@@ -43,36 +43,41 @@
         <trackHistory>false</trackHistory>
     </fields>
     <fields>
-        <fullName>IsAlohaSupported</fullName>
-    </fields>
-    <fields>
-        <fullName>IsLightningSupported</fullName>
-    </fields>
-    <fields>
         <fullName>Name</fullName>
         <trackHistory>false</trackHistory>
     </fields>
     <fields>
-        <fullName>OwnerId</fullName>
+        <fullName>ProgramId</fullName>
         <trackHistory>false</trackHistory>
-        <type>Lookup</type>
+        <type>MasterDetail</type>
     </fields>
     <fields>
-        <fullName>StartingContext</fullName>
+        <fullName>Rank</fullName>
+        <trackHistory>false</trackHistory>
     </fields>
+    <listViews>
+        <fullName>All_Channel_Program_Levels</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All Channel Program Levels</label>
+    </listViews>
+    <listViews>
+        <fullName>My_Channel_Program_Levels</fullName>
+        <filterScope>Mine</filterScope>
+        <label>My Channel Program Levels</label>
+    </listViews>
     <searchLayouts>
-        <customTabListAdditionalFields>StartingContext</customTabListAdditionalFields>
-        <customTabListAdditionalFields>LastModifiedDate</customTabListAdditionalFields>
-        <customTabListAdditionalFields>LastModifiedBy</customTabListAdditionalFields>
-        <lookupDialogsAdditionalFields>StartingContext</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>LastModifiedDate</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>LastModifiedBy</lookupDialogsAdditionalFields>
-        <lookupPhoneDialogsAdditionalFields>StartingContext</lookupPhoneDialogsAdditionalFields>
-        <lookupPhoneDialogsAdditionalFields>LastModifiedDate</lookupPhoneDialogsAdditionalFields>
-        <lookupPhoneDialogsAdditionalFields>LastModifiedBy</lookupPhoneDialogsAdditionalFields>
-        <searchResultsAdditionalFields>StartingContext</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>LastModifiedDate</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>LastModifiedBy</searchResultsAdditionalFields>
+        <customTabListAdditionalFields>Program</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Rank</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Description</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>Program</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Rank</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Description</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Program</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Rank</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Description</lookupPhoneDialogsAdditionalFields>
+        <searchResultsAdditionalFields>Program</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Rank</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Description</searchResultsAdditionalFields>
     </searchLayouts>
-    <sharingModel>Private</sharingModel>
+    <sharingModel>ControlledByParent</sharingModel>
 </CustomObject>
