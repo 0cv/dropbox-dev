@@ -65,12 +65,6 @@
         <type>Default</type>
     </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
-    <compactLayouts>
-        <fullName>newcompactlayout</fullName>
-        <fields>AccountSource</fields>
-        <fields>OwnerId</fields>
-        <label>newcompactlayout</label>
-    </compactLayouts>
     <enableFeeds>true</enableFeeds>
     <enableHistory>false</enableHistory>
     <externalSharingModel>Private</externalSharingModel>
