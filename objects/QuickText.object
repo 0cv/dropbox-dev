@@ -68,12 +68,16 @@
     <searchLayouts>
         <customTabListAdditionalFields>Message</customTabListAdditionalFields>
         <customTabListAdditionalFields>Category</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Channel</customTabListAdditionalFields>
         <lookupDialogsAdditionalFields>Message</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Category</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Channel</lookupDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>Message</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>Category</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Channel</lookupPhoneDialogsAdditionalFields>
         <searchResultsAdditionalFields>Message</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Category</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Channel</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>Private</sharingModel>
 </CustomObject>

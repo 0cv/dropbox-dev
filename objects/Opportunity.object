@@ -166,6 +166,10 @@
         <trackTrending>false</trackTrending>
     </fields>
     <fields>
+        <fullName>IqScore</fullName>
+        <trackTrending>false</trackTrending>
+    </fields>
+    <fields>
         <fullName>IsExcludedFromTerritory2Filter</fullName>
         <trackTrending>false</trackTrending>
     </fields>

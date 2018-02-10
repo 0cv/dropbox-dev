@@ -59,6 +59,15 @@
         <fullName>RequestDateTime</fullName>
     </fields>
     <fields>
+        <fullName>RoutingModel</fullName>
+    </fields>
+    <fields>
+        <fullName>RoutingPriority</fullName>
+    </fields>
+    <fields>
+        <fullName>RoutingType</fullName>
+    </fields>
+    <fields>
         <fullName>ServiceChannelId</fullName>
         <type>Lookup</type>
     </fields>

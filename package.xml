@@ -42,6 +42,8 @@
         <members>ChannelProgram</members>
         <members>ChannelProgramLevel</members>
         <members>ChannelProgramMember</members>
+        <members>CollaborationGroup</members>
+        <members>CollaborationGroupMember</members>
         <members>Contact</members>
         <members>ContentVersion</members>
         <members>Contract</members>
@@ -74,6 +76,7 @@
         <members>OpportunityLineItem</members>
         <members>Order</members>
         <members>OrderItem</members>
+        <members>OrgDeleteRequest</members>
         <members>PartnerFundAllocation</members>
         <members>PartnerFundClaim</members>
         <members>PartnerFundRequest</members>
@@ -87,6 +90,7 @@
         <members>QuickText</members>
         <members>Reply</members>
         <members>Scorecard</members>
+        <members>ScorecardAssociation</members>
         <members>ScorecardMetric</members>
         <members>ServiceContract</members>
         <members>Site</members>
@@ -96,6 +100,8 @@
         <members>Task</members>
         <members>Territory2</members>
         <members>Territory2Model</members>
+        <members>Topic</members>
+        <members>TopicAssignment</members>
         <members>User</members>
         <members>UserProvisioningRequest</members>
         <members>UserServicePresence</members>
