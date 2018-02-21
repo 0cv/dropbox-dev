@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
     <labels>
+        <fullName>Access_Privileges_Veeva_Network_Error_MVN</fullName>
+        <categories>AccountSearchMVN</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Access Privileges Veeva Network Error</shortDescription>
+        <value>Access Privileges Veeva Network Error</value>
+    </labels>
+    <labels>
         <fullName>LABS_SF_AddQuestion</fullName>
         <language>en_US</language>
         <protected>true</protected>
