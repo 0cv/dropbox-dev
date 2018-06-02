@@ -811,6 +811,16 @@
         <url>http://www.genwatt.com/genwatt/billing.htm</url>
     </webLinks>
     <webLinks>
+        <fullName>Test</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Test</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>test</url>
+    </webLinks>
+    <webLinks>
         <fullName>new_link</fullName>
         <availability>online</availability>
         <displayType>link</displayType>
