@@ -27,6 +27,7 @@
     <types>
         <members>*</members>
         <members>Account</members>
+        <members>AccountBrand</members>
         <members>AccountContactRelation</members>
         <members>AccountContactRole</members>
         <members>Activity</members>
@@ -88,6 +89,7 @@
         <members>Product2</members>
         <members>Question</members>
         <members>QuickText</members>
+        <members>RecordAction</members>
         <members>Reply</members>
         <members>Scorecard</members>
         <members>ScorecardAssociation</members>

@@ -73,6 +73,10 @@
         <trackHistory>false</trackHistory>
     </fields>
     <fields>
+        <fullName>NumberOfRevenueInstallments</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
         <fullName>ProductCode</fullName>
         <trackHistory>false</trackHistory>
     </fields>
@@ -80,6 +84,14 @@
         <fullName>QuantityUnitOfMeasure</fullName>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>RevenueInstallmentPeriod</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>RevenueScheduleType</fullName>
+        <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>StockKeepingUnit</fullName>
