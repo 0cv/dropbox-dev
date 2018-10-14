@@ -32,6 +32,9 @@
         <fullName>HandleTime</fullName>
     </fields>
     <fields>
+        <fullName>IsConference</fullName>
+    </fields>
+    <fields>
         <fullName>IsTransfer</fullName>
     </fields>
     <fields>

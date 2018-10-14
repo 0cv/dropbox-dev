@@ -43,6 +43,7 @@
         <members>ChannelProgram</members>
         <members>ChannelProgramLevel</members>
         <members>ChannelProgramMember</members>
+        <members>ChatterActivity</members>
         <members>CollaborationGroup</members>
         <members>CollaborationGroupMember</members>
         <members>Contact</members>
