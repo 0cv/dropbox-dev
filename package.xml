@@ -59,6 +59,8 @@
         <members>EntitlementContact</members>
         <members>Event</members>
         <members>ExchangeUserMapping</members>
+        <members>ExpressionFilter</members>
+        <members>ExpressionFilterCriteria</members>
         <members>FeedItem</members>
         <members>ForecastingAdjustment</members>
         <members>ForecastingCategoryMapping</members>
@@ -78,6 +80,7 @@
         <members>OpportunityCompetitor</members>
         <members>OpportunityContactRole</members>
         <members>OpportunityLineItem</members>
+        <members>OpportunityLineItemSchedule</members>
         <members>Order</members>
         <members>OrderItem</members>
         <members>OrgDeleteRequest</members>
@@ -90,6 +93,7 @@
         <members>Pricebook2</members>
         <members>PricebookEntry</members>
         <members>Product2</members>
+        <members>PromptAction</members>
         <members>Question</members>
         <members>QuickText</members>
         <members>Recommendation</members>
