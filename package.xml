@@ -35,6 +35,10 @@
         <members>Asset</members>
         <members>AssetRelationship</members>
         <members>AssistantProgress</members>
+        <members>AuthorizationForm</members>
+        <members>AuthorizationFormConsent</members>
+        <members>AuthorizationFormDataUse</members>
+        <members>AuthorizationFormText</members>
         <members>Campaign</members>
         <members>CampaignMember</members>
         <members>Case</members>
@@ -46,12 +50,17 @@
         <members>ChatterActivity</members>
         <members>CollaborationGroup</members>
         <members>CollaborationGroupMember</members>
+        <members>ConsumptionRate</members>
+        <members>ConsumptionSchedule</members>
         <members>Contact</members>
+        <members>ContactPointTypeConsent</members>
         <members>ContactRequest</members>
         <members>ContentVersion</members>
         <members>Contract</members>
         <members>ContractContactRole</members>
         <members>ContractLineItem</members>
+        <members>DataUseLegalBasis</members>
+        <members>DataUsePurpose</members>
         <members>DuplicateRecordItem</members>
         <members>DuplicateRecordSet</members>
         <members>EmailMessage</members>
@@ -70,6 +79,7 @@
         <members>Idea</members>
         <members>IdeaTheme</members>
         <members>Image</members>
+        <members>Individual</members>
         <members>Lead</members>
         <members>LinkedArticle</members>
         <members>Macro</members>
@@ -93,6 +103,7 @@
         <members>Pricebook2</members>
         <members>PricebookEntry</members>
         <members>Product2</members>
+        <members>ProductConsumptionSchedule</members>
         <members>PromptAction</members>
         <members>Question</members>
         <members>QuickText</members>
