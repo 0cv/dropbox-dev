@@ -36,50 +36,27 @@
         <actionName>View</actionName>
         <type>Default</type>
     </actionOverrides>
-    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <enableFeeds>false</enableFeeds>
-    <externalSharingModel>Private</externalSharingModel>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
     <fields>
-        <fullName>DefaultAuthFormTextId</fullName>
-        <trackHistory>false</trackHistory>
-        <type>Lookup</type>
+        <fullName>ErrorMessage</fullName>
+        <type>Picklist</type>
     </fields>
     <fields>
-        <fullName>EffectiveFromDate</fullName>
-        <trackHistory>false</trackHistory>
+        <fullName>ImplementationEffort</fullName>
+        <type>Picklist</type>
     </fields>
     <fields>
-        <fullName>EffectiveToDate</fullName>
-        <trackHistory>false</trackHistory>
+        <fullName>Status</fullName>
+        <type>Picklist</type>
     </fields>
-    <fields>
-        <fullName>IsSignatureRequired</fullName>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
-        <fullName>Name</fullName>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
-        <fullName>RevisionNumber</fullName>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <listViews>
-        <fullName>All_AuthorizationForms</fullName>
-        <filterScope>Everything</filterScope>
-        <label>Alle Autorisierungsformulare</label>
-    </listViews>
     <searchLayouts>
-        <customTabListAdditionalFields>RevisionNumber</customTabListAdditionalFields>
-        <customTabListAdditionalFields>EffectiveFromDate</customTabListAdditionalFields>
-        <customTabListAdditionalFields>EffectiveToDate</customTabListAdditionalFields>
         <customTabListAdditionalFields>LastModifiedDate</customTabListAdditionalFields>
         <customTabListAdditionalFields>LastModifiedBy</customTabListAdditionalFields>
-        <searchResultsAdditionalFields>RevisionNumber</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>EffectiveFromDate</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>EffectiveToDate</searchResultsAdditionalFields>
+        <customTabListAdditionalFields>OrgMetric</customTabListAdditionalFields>
         <searchResultsAdditionalFields>LastModifiedDate</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>LastModifiedBy</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>OrgMetric</searchResultsAdditionalFields>
     </searchLayouts>
-    <sharingModel>Private</sharingModel>
+    <sharingModel>ControlledByParent</sharingModel>
 </CustomObject>

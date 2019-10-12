@@ -85,6 +85,7 @@
         <members>Macro</members>
         <members>MacroAction</members>
         <members>MacroInstruction</members>
+        <members>MacroUsage</members>
         <members>NetworkMember</members>
         <members>Opportunity</members>
         <members>OpportunityCompetitor</members>
@@ -94,6 +95,8 @@
         <members>Order</members>
         <members>OrderItem</members>
         <members>OrgDeleteRequest</members>
+        <members>OrgMetricScanResult</members>
+        <members>OrgMetricScanSummary</members>
         <members>PartnerFundAllocation</members>
         <members>PartnerFundClaim</members>
         <members>PartnerFundRequest</members>
@@ -107,8 +110,10 @@
         <members>PromptAction</members>
         <members>Question</members>
         <members>QuickText</members>
+        <members>QuickTextUsage</members>
         <members>Recommendation</members>
         <members>RecordAction</members>
+        <members>RecordMergeHistory</members>
         <members>Reply</members>
         <members>Scorecard</members>
         <members>ScorecardAssociation</members>

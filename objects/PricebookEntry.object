@@ -37,11 +37,13 @@
         <label>ExternalId</label>
         <length>255</length>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>true</unique>
     </fields>
     <fields>
         <fullName>IsActive</fullName>
+        <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>Pricebook2Id</fullName>
@@ -59,9 +61,11 @@
     </fields>
     <fields>
         <fullName>UnitPrice</fullName>
+        <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>UseStandardPrice</fullName>
+        <trackHistory>false</trackHistory>
     </fields>
     <searchLayouts>
         <searchResultsAdditionalFields>PRODUCT.NAME</searchResultsAdditionalFields>
