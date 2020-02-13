@@ -66,6 +66,17 @@
         <writeRequiresMasterRead>false</writeRequiresMasterRead>
     </fields>
     <fields>
+        <fullName>TestField__c</fullName>
+        <externalId>false</externalId>
+        <formula>$Api.Enterprise_Server_URL_470</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>TestField</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>field1__c</fullName>
         <externalId>false</externalId>
         <label>field1</label>
