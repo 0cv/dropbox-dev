@@ -50,6 +50,8 @@
         <members>ChatterActivity</members>
         <members>CollaborationGroup</members>
         <members>CollaborationGroupMember</members>
+        <members>CommSubscription</members>
+        <members>CommSubscriptionChannelType</members>
         <members>ConsumptionRate</members>
         <members>ConsumptionSchedule</members>
         <members>Contact</members>
@@ -64,12 +66,14 @@
         <members>DuplicateRecordItem</members>
         <members>DuplicateRecordSet</members>
         <members>EmailMessage</members>
+        <members>EngagementChannelType</members>
         <members>Entitlement</members>
         <members>EntitlementContact</members>
         <members>Event</members>
         <members>ExchangeUserMapping</members>
         <members>ExpressionFilter</members>
         <members>ExpressionFilterCriteria</members>
+        <members>ExternalEventMapping</members>
         <members>FeedItem</members>
         <members>ForecastingAdjustment</members>
         <members>ForecastingCategoryMapping</members>
@@ -102,6 +106,7 @@
         <members>PartnerFundRequest</members>
         <members>PartnerMarketingBudget</members>
         <members>PartnerRole</members>
+        <members>PartyConsent</members>
         <members>PendingServiceRouting</members>
         <members>Pricebook2</members>
         <members>PricebookEntry</members>
