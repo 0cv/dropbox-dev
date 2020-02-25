@@ -68,7 +68,7 @@
     <fields>
         <fullName>TestField__c</fullName>
         <externalId>false</externalId>
-        <formula>$Api.Enterprise_Server_URL_470</formula>
+        <formula>IMAGE(&quot;/img/samples/color_red.gif&quot;, &quot;Not Good&quot;)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>TestField</label>
         <required>false</required>
