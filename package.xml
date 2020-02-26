@@ -48,8 +48,6 @@
         <members>ChannelProgramLevel</members>
         <members>ChannelProgramMember</members>
         <members>ChatterActivity</members>
-        <members>CollaborationGroup</members>
-        <members>CollaborationGroupMember</members>
         <members>CommSubscription</members>
         <members>CommSubscriptionChannelType</members>
         <members>ConsumptionRate</members>
