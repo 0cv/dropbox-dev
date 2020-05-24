@@ -1,0 +1,15 @@
+<apex:page sidebar="false" showheader="false" >
+
+
+<script type="text/javascript">
+    const init = import("{!URLFOR($Resource.wasm, 'wasm_game_of_life.js')}");
+    
+    init.then(async init => {
+        await init.default();
+        await init.greet();
+    });
+</script>
+
+
+
+</apex:page>
