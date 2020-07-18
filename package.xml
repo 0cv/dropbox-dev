@@ -72,7 +72,6 @@
         <members>ExpressionFilter</members>
         <members>ExpressionFilterCriteria</members>
         <members>ExternalEventMapping</members>
-        <members>FeedItem</members>
         <members>ForecastingAdjustment</members>
         <members>ForecastingCategoryMapping</members>
         <members>ForecastingOwnerAdjustment</members>

@@ -273,7 +273,7 @@
     </fields>
     <listViews>
         <fullName>AllOpportunities</fullName>
-        <filterScope>Team</filterScope>
+        <filterScope>SalesTeam</filterScope>
         <label>All Opportunities</label>
     </listViews>
     <listViews>
