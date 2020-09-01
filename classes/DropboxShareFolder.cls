@@ -47,12 +47,5 @@ global with sharing class DropboxShareFolder {
         }
     }
     
-    @isTest
-    public static void testing() {
-        Account acc = new Account(Name = 'test');
-        insert acc;
-    //    Dropbox__c drop = new Dropbox__c(Account__c = acc.Id, URL__c = 'http://www.dropbox.com/app/salesforce/' + UserInfo.getOrganizationId() + '/' + acc.Id);
-     //   insert drop;
-        DropboxShareFolder.init('http://www.salesforce.com/' + acc.Id);
-    }
+
 }

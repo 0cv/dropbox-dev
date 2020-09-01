@@ -102,39 +102,5 @@ public class DropboxOverrideController {
         return PR;
     }
     
-    @isTest
-    public static void testing() {
-        User u = [select id from User where isActive = true limit 1];
-        system.runAs(u) {
-            Dropbox__c dropTest2 = new Dropbox__c();
-            dropTest2.URL__c = 'https://www.dropbox.com/0/links/'+ UserInfo.getOrganizationId() + '/test' ;
-            insert dropTest2;
-            ApexPages.StandardController controller = new ApexPages.StandardController(dropTest2);
-            
-            DropboxOverrideController DOO = new DropboxOverrideController(controller);
-            DOO.doJob();
-            ApexPages.currentPage().getParameters().put('retURL', 'www.google.de');
-            DOO.redirectAfterDelete();
-            DOO.doRequest('test', 'test');
-        }
-        
-    }
-    
-    @isTest
-    public static void testing2() {
-        User u = [select id from User where isActive = true limit 1];
-        system.runAs(u) {
-            Dropbox__c dropTest2 = new Dropbox__c();
-            insert dropTest2;
-            ApexPages.StandardController controller = new ApexPages.StandardController(dropTest2);
-            
-            DropboxOverrideController DOO = new DropboxOverrideController(controller);
 
-            DOO.doJob();
-            ApexPages.currentPage().getParameters().put('retURL', 'www.google.de');
-            DOO.redirectAfterDelete();
-            DOO.doRequest('test', 'test');
-        }
-        
-    }
 }

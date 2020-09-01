@@ -433,40 +433,7 @@ public class DropboxPopup {
         return null; 
     }
     
-    @isTest
-    public static void testing() {
-        Account acc = new Account(Name = 'test');
-        insert acc;
-        Dropbox__c drop = [select id, URL__c from Dropbox__c order by createddate desc limit 1];
-        ApexPages.currentPage().getParameters().put('url', 'https://www.salesforce.com/' + acc.Id);
-        DropboxPopup DP = new DropboxPopup();
-        DropboxPopup.ShareableLink SL = new DropboxPopup.ShareableLink();
-        DropboxPopup.metadataFolderList SL2 = new DropboxPopup.metadataFolderList();
-        DropboxPopup.metadataList SL3 = new DropboxPopup.metadataList();
-        DropboxPopup.metadata SL4 = new DropboxPopup.metadata();
-        ApexPages.currentPage().getParameters().put('theURL', drop.URL__c);
-        DP.GetShareableLink();
-        DP.getFile4Email(new list<Dropbox__c>{drop});
-        ApexPages.currentPage().getParameters().put('theId', drop.Id);
-        DP.deleteIt();
-    }
+
     
-    @isTest
-    public static void testing2() {
-        Account acc = new Account(Name = 'test');
-        insert acc;
-        Dropbox__c drop = [select id, URL__c from Dropbox__c order by createddate desc limit 1];
-        ApexPages.currentPage().getParameters().put('url', 'https://www.salesforce.com/' + acc.Id);
-        DropboxPopup DP = new DropboxPopup();
-        DP.URLGeneration(drop.URL__c, 'files', null);
-        ApexPages.currentPage().getParameters().put('theURL', drop.URL__c);
-        DP.getFile();
-        DP.dataTransfer();
-        DP.UploadThemAll();
-        DropboxPopup.FileName = 'test';
-        DropboxPopup.UploadIt();
-        DP.getDropboxes();
-        DP.CheckEmptyFolder('test', 'test');
-        DP.AfterUpload();
-    }
+ 
 }

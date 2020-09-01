@@ -143,15 +143,5 @@ public class DropboxConfigController {
         return pageRef;
     }
     
-    @isTest
-    public static void testing() {
-        DropboxConfigController DCC = new DropboxConfigController();
-        system.currentPageReference().getParameters().put('return', 'logged');
-        DCC.DeleteSchedule24Hours();
-        DCC.DeleteScheduleRemove();
-        DCC.Reschedule24Hours();
-        DCC.RescheduleRemove();
-        DCC.save();
-        DCC.auth2dropboxsite();
-    }
+
 }
