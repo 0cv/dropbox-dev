@@ -1,6 +1,6 @@
 <apex:component allowDML="true">
 
-<apex:attribute name="pkbCon" type="pkb_Controller" required="true" description="handle to the pkb controller" />
+<apex:attribute name="pkbCon" type="01pd0000002jY5Q" required="true" description="handle to the pkb controller" />
 
 <apex:attribute name="aid" type="String" required="true" description="ID of the article" />
 <apex:attribute name="title" type="String" required="true" description="Title of the article" />

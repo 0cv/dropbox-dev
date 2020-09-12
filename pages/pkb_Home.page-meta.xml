@@ -4,4 +4,24 @@
     <availableInTouch>false</availableInTouch>
     <confirmationTokenRequired>false</confirmationTokenRequired>
     <label>pkb_Home</label>
+    <packageVersions>
+        <majorNumber>4</majorNumber>
+        <minorNumber>13</minorNumber>
+        <namespace>sf4twitter</namespace>
+    </packageVersions>
+    <packageVersions>
+        <majorNumber>1</majorNumber>
+        <minorNumber>10</minorNumber>
+        <namespace>sf_chttr_apps</namespace>
+    </packageVersions>
+    <packageVersions>
+        <majorNumber>1</majorNumber>
+        <minorNumber>7</minorNumber>
+        <namespace>sf_com_apps</namespace>
+    </packageVersions>
+    <packageVersions>
+        <majorNumber>8</majorNumber>
+        <minorNumber>11</minorNumber>
+        <namespace>skuid</namespace>
+    </packageVersions>
 </ApexPage>

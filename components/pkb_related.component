@@ -1,5 +1,5 @@
 <apex:component allowDML="true">
-<apex:attribute name="pkbCon" type="pkb_Controller" required="true" description="handle to the pkb controller" />
+<apex:attribute name="pkbCon" type="01pd0000002jY5Q" required="true" description="handle to the pkb controller" />
 
   <apex:outputPanel styleClass="relatedArticles" layout="block">
     <h2 class="section">{!$Label.PKB2_Related_Articles}</h2>

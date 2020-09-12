@@ -1,5 +1,5 @@
 <apex:component allowDML="true">
-<apex:attribute name="pkbCon" type="pkb_Controller" required="true" description="handle to the pkb controller" />
+<apex:attribute name="pkbCon" type="01pd0000002jY5Q" required="true" description="handle to the pkb controller" />
 
 <apex:variable var="typeName" value="{!SUBSTITUTE(pkbCon.theKad.articleTypeName, pkbCon.kavExtension, '')}" />
 <apex:variable var="articleURL" value="{!$Site.CurrentSiteUrl}articles{!pkbCon.selectedLanguageURL}{!typeName}/{!pkbCon.theKad.urlName}" />
