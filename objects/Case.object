@@ -410,6 +410,13 @@
         </valueSet>
     </fields>
     <fields>
+        <fullName>ServiceContractId</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>SlaExitDate</fullName>
         <trackTrending>false</trackTrending>
     </fields>

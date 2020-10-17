@@ -15,9 +15,6 @@
         <fullName>CancelDateTime</fullName>
     </fields>
     <fields>
-        <fullName>CapacityModel</fullName>
-    </fields>
-    <fields>
         <fullName>CapacityPercentage</fullName>
     </fields>
     <fields>
@@ -40,6 +37,9 @@
     </fields>
     <fields>
         <fullName>IsConference</fullName>
+    </fields>
+    <fields>
+        <fullName>IsPreferredUserRequired</fullName>
     </fields>
     <fields>
         <fullName>IsTransfer</fullName>

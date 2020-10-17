@@ -31,6 +31,7 @@
         <members>AccountContactRelation</members>
         <members>AccountContactRole</members>
         <members>Activity</members>
+        <members>ActivityRecurrence2Exception</members>
         <members>AgentWork</members>
         <members>Asset</members>
         <members>AssetRelationship</members>
@@ -61,6 +62,7 @@
         <members>ContractLineItem</members>
         <members>DataUseLegalBasis</members>
         <members>DataUsePurpose</members>
+        <members>DelegatedAccount</members>
         <members>DuplicateRecordItem</members>
         <members>DuplicateRecordSet</members>
         <members>EmailMessage</members>
